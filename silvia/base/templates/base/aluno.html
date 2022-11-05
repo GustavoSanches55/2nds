@@ -1,11 +1,95 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALUNOS___</title>
+    <title>Document</title>
 </head>
 <body>
-    
+    <h1>Avaliações</h1>
+    <div class="content">
+        <form action="">
+            <label for="materia">escolha a matéria:</label>
+            <select name="materia" id="input_materia">
+                <option value="none">Toque para opções</option>
+            </select>
+            <label for="conhecimento">conhecimento na matéria:</label>
+            <input type="range" name="conhecimento" id="input_conhecimento" min="1" max="10" value="5" class="slider">
+            <label for="sentimento">escolha a categoria de sentimento:</label>
+            <h2>sentimentos</h2>
+            <input type="hidden" name="sentimento" id="input_sentimento">
+            <div class="sentimentBox">
+                <div class="box1">
+                    <h3 class="sentimentKind">Indisposto + Bom</h3>
+                    <div class="box1">
+                        <p class="sentiment">Sentimento 1</p>
+                    </div>
+                    <div class="box2">
+                        <p class="sentiment">Sentimento 2</p>
+                    </div>
+                    <div class="box3">
+                        <p class="sentiment">Sentimento 3</p>
+                    </div>
+                    <div class="box4">
+                        <p class="sentiment">Sentimento 4</p>
+                    </div>
+                </div>
+                <div class="box2">
+                    <h3 class="sentimentKind">Disposto + Bom</h3>
+                    <div class="box1">
+                        <p class="sentiment">Sentimento 1</p>
+                    </div>
+                    <div class="box2">
+                        <p class="sentiment">Sentimento 2</p>
+                    </div>
+                    <div class="box3">
+                        <p class="sentiment">Sentimento 3</p>
+                    </div>
+                    <div class="box4">
+                        <p class="sentiment">Sentimento 4</p>
+                    </div>
+                </div>
+                <div class="box3">
+                    <h3 class="sentimentKind">Indisposto + Ruim</h3>
+                    <div class="box1">
+                        <p class="sentiment">Sentimento 1</p>
+                    </div>
+                    <div class="box2">
+                        <p class="sentiment">Sentimento 2</p>
+                    </div>
+                    <div class="box3">
+                        <p class="sentiment">Sentimento 3</p>
+                    </div>
+                    <div class="box4">
+                        <p class="sentiment">Sentimento 4</p>
+                    </div>
+                </div>
+                <div class="box4">
+                    <h3 class="sentimentKind">Disposto + Ruim</h3>
+                    <div class="box1">
+                        <p class="sentiment">Sentimento 1</p>
+                    </div>
+                    <div class="box2">
+                        <p class="sentiment">Sentimento 2</p>
+                    </div>
+                    <div class="box3">
+                        <p class="sentiment">Sentimento 3</p>
+                    </div>
+                    <div class="box4">
+                        <p class="sentiment">Sentimento 4</p>
+                    </div>
+                </div>
+            </div>
+            <label for="comentario">por que você se sente dessa forma sobre a matéria?</label>
+            <textarea name="comentario" id="input_comentario" cols="40" rows="8"></textarea>
+            <button type="submit">enviar</button>
+        </form>
+    </div>
+    <div class="footer">
+        <button class="home">🏠</button>
+        <button class="mySentiments">❤</button>
+        <button class="menu">📝</button>
+    </div>
 </body>
 </html>
