@@ -1,4 +1,9 @@
-.content {
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
+body {
+  font-family: 'Lexend', sans-serif;
+}
+
+body .content {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -7,8 +12,16 @@
   margin-bottom: 20px;
 }
 
-.content .sentimentBox {
+body .content .sentimentBox {
   position: relative;
   width: 100%;
+  background-color: aquamarine;
+}
+
+body .content .sentimentBox > div {
+  width: calc(50% - 5px);
+  height: 150px;
+  position: relative;
+  background-color: aqua;
 }
 /*# sourceMappingURL=aluno.css.map */

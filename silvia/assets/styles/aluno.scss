@@ -1,11 +1,24 @@
-.content{
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    .sentimentBox {
-        position: relative;
-        width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap');
+
+body{
+    font-family: 'Lexend', sans-serif;
+    .content{
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        .sentimentBox {
+            position: relative;
+            width: 100%;
+            background-color: aquamarine;
+            >div{
+                width: calc(50% - 5px);
+                height: 150px;
+                position: relative;
+                background-color: aqua;
+
+            }
+        }
     }
 }
