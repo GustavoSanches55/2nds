@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
 body {
   font-family: 'Lexend', sans-serif;
+  margin: 0;
 }
 
 body .content {
+  max-width: 100vw;
+  overflow-x: hidden;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -12,10 +15,19 @@ body .content {
   margin-bottom: 20px;
 }
 
+body .content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 body .content .sentimentBox {
   position: relative;
   width: 100%;
-  background-color: aquamarine;
 }
 
 body .content .sentimentBox > div {
@@ -23,5 +35,31 @@ body .content .sentimentBox > div {
   height: 150px;
   position: relative;
   background-color: aqua;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+body .content .sentimentBox > div.box1 {
+  position: relative;
+}
+
+body .content .sentimentBox > div.box2 {
+  position: relative;
+}
+
+body .content .sentimentBox > div.box3 {
+  position: relative;
+  bottom: 0;
+  margin-top: 5px;
+}
+
+body .content .sentimentBox > div.box4 {
+  position: relative;
+  bottom: 0;
+  margin-top: 5px;
+}
+
+body .content .sentimentBox > div > div p {
+  display: none;
 }
 /*# sourceMappingURL=aluno.css.map */
