@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAA;EACJ,gBAAgB,EAAE,IAAI;EACtB,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,GAAG;EAClB,UAAU,EAAE,CAAC,CAAC,CAAC,CAAC,IAAI,CAAC,kBAAe;EACpC,aAAa,EAAE,IAAI;CAKtB;;AAVD,AAMI,QANI,CAMJ,aAAa,CAAC;EACV,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "aluno.scss"
+    ],
+    "names": [],
+    "file": "aluno.css"
+}
