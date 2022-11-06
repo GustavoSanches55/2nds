@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import response
+from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
@@ -14,22 +14,20 @@ def get_route(request):
     routes = [
     {
 
-        'name': 'Home',
-        'url' : 'index',
+        'Endpoint': '',
         'method': 'GET',
         'body': None,
-        'description': 'Página inicial do sistema'
+        'description': 'Returns the homepage'
     },
 
     {
-        'name': 'Aluno',
-        'url' : 'alunos',
+        'Endpoint': '/alunos/',
         'method': 'GET',
         'body': None,
-        'description': 'Página de alunos do sistema'
+        'description': 'aluno'
     },
     {
-        'Endpoint': '/listarAlunos',
+        'Endpoint': '/listarAlunos/',
         'method': 'GET',
         'body': None,
         'description': 'Lista todos os alunos'
@@ -44,12 +42,16 @@ def get_route(request):
 @api_view(['GET'])
 def getAlunos(request):
     if request.method == 'GET':
-        return getAlunos(request)
+        alunos = aluno.objects.all()
+        serializer = AlunoSerializer(alunos, many=True)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def getAluno(request, pk):
     if request.method == 'GET':
-        return getAluno(request, pk)
+        aluno = aluno.objects.get(id=pk)
+        serializer = AlunoSerializer(aluno, many=False)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def getTurmas(request):
