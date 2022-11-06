@@ -81,3 +81,11 @@ Overview first, zoom and filter, then details-on-demand
 Overview first, zoom and filter, then details-on-demand " 
 
 Criando um caminho claro: primeiro observa o grafo geral e nota disparidades (matérias com muitos sentimentos do mesmo tipo, por exemplo), em sequência, filtra e adiciona detalhes, a fim de auxiliar na tomada de decisão.
+
+### Modelagem do banco de dados
+
+Modelamos um banco de dados focado na avaliação, imagem a seguir:
+
+![Banco](imagens_relatorio\banco.png)
+
+*nota*: os nomes de algumas entidades como disciplina são um pouco abstratos. Não se apegue a eles para a compreensão geral do banco.
