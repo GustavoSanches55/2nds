@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#FFFFFF", "id": "dificuldade", "label": "dificuldade", "shape": "dot", "size": 20}, {"color": "#FFFFFF", "id": "facilidade", "label": "facilidade", "shape": "dot", "size": 20}, {"color": "#FFFFFF", "id": "prova", "label": "prova", "shape": "dot", "size": 20}, {"color": "#FFFFFF", "id": "seminario", "label": "seminario", "shape": "dot", "size": 20}, {"color": "#222725", "id": "ingles", "label": "ingles", "shape": "dot", "size": 10, "title": "Roberto"}, {"color": "#70B7BA", "id": 73, "label": " ", "shape": "dot", "title": "triste", "value": 2}, {"color": "#F1433F", "id": 74, "label": " ", "shape": "dot", "title": "puto", "value": 5}, {"color": "#A9CF54", "id": 75, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 4}, {"color": "#F7E967", "id": 76, "label": " ", "shape": "dot", "title": "feliz", "value": 2}, {"color": "#F1433F", "id": 77, "label": " ", "shape": "dot", "title": "puto", "value": 2}, {"color": "#A9CF54", "id": 78, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 1}, {"color": "#A9CF54", "id": 79, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#A9CF54", "id": 80, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 4}, {"color": "#F1433F", "id": 81, "label": " ", "shape": "dot", "title": "puto", "value": 5}, {"color": "#F7E967", "id": 82, "label": " ", "shape": "dot", "title": "feliz", "value": 2}, {"color": "#70B7BA", "id": 83, "label": " ", "shape": "dot", "title": "triste", "value": 2}, {"color": "#70B7BA", "id": 84, "label": " ", "shape": "dot", "title": "triste", "value": 5}, {"color": "#70B7BA", "id": 85, "label": " ", "shape": "dot", "title": "triste", "value": 5}, {"color": "#F7E967", "id": 86, "label": " ", "shape": "dot", "title": "feliz", "value": 2}, {"color": "#F1433F", "id": 87, "label": " ", "shape": "dot", "title": "puto", "value": 5}, {"color": "#F1433F", "id": 88, "label": " ", "shape": "dot", "title": "puto", "value": 3}, {"color": "#F1433F", "id": 89, "label": " ", "shape": "dot", "title": "puto", "value": 4}, {"color": "#F1433F", "id": 90, "label": " ", "shape": "dot", "title": "puto", "value": 5}, {"color": "#F1433F", "id": 91, "label": " ", "shape": "dot", "title": "puto", "value": 4}, {"color": "#F1433F", "id": 92, "label": " ", "shape": "dot", "title": "puto", "value": 1}, {"color": "#F1433F", "id": 93, "label": " ", "shape": "dot", "title": "puto", "value": 1}, {"color": "#F1433F", "id": 94, "label": " ", "shape": "dot", "title": "puto", "value": 4}, {"color": "#F1433F", "id": 95, "label": " ", "shape": "dot", "title": "puto", "value": 1}, {"color": "#F1433F", "id": 96, "label": " ", "shape": "dot", "title": "puto", "value": 4}, {"id": "disposto-bom-ingles", "label": " ", "shape": "dot", "size": 0}, {"id": "disposto-ruim-ingles", "label": " ", "shape": "dot", "size": 0}, {"id": "indisposto-bom-ingles", "label": " ", "shape": "dot", "size": 0}, {"id": "indisposto-ruim-ingles", "label": " ", "shape": "dot", "size": 0}]);
+        edges = new vis.DataSet([{"color": "#FFFFFF", "from": 73, "length": 5, "to": "indisposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 74, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 75, "length": 5, "to": "indisposto-bom-ingles"}, {"color": "#FFFFFF", "from": 76, "length": 5, "to": "disposto-bom-ingles"}, {"color": "#FFFFFF", "from": 77, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 78, "length": 5, "to": "indisposto-bom-ingles"}, {"color": "#FFFFFF", "from": 79, "length": 5, "to": "indisposto-bom-ingles"}, {"color": "#FFFFFF", "from": 80, "length": 5, "to": "indisposto-bom-ingles"}, {"color": "#FFFFFF", "from": 81, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 82, "length": 5, "to": "disposto-bom-ingles"}, {"color": "#FFFFFF", "from": 83, "length": 5, "to": "indisposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 84, "length": 5, "to": "indisposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 85, "length": 5, "to": "indisposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 86, "length": 5, "to": "disposto-bom-ingles"}, {"color": "#FFFFFF", "from": 87, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 88, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 89, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 90, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 91, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 92, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 93, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 94, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 95, "length": 5, "to": "disposto-ruim-ingles"}, {"color": "#FFFFFF", "from": 96, "length": 5, "to": "disposto-ruim-ingles"}, {"from": 73, "to": "ingles"}, {"from": 74, "to": "ingles"}, {"from": 75, "to": "ingles"}, {"from": 76, "to": "ingles"}, {"from": 77, "to": "ingles"}, {"from": 78, "to": "ingles"}, {"from": 79, "to": "ingles"}, {"from": 80, "to": "ingles"}, {"from": 81, "to": "ingles"}, {"from": 82, "to": "ingles"}, {"from": 83, "to": "ingles"}, {"from": 84, "to": "ingles"}, {"from": 85, "to": "ingles"}, {"from": 86, "to": "ingles"}, {"from": 87, "to": "ingles"}, {"from": 88, "to": "ingles"}, {"from": 89, "to": "ingles"}, {"from": 90, "to": "ingles"}, {"from": 91, "to": "ingles"}, {"from": 92, "to": "ingles"}, {"from": 93, "to": "ingles"}, {"from": 94, "to": "ingles"}, {"from": 95, "to": "ingles"}, {"from": 96, "to": "ingles"}, {"from": 73, "lenght": 1000, "to": "prova"}, {"from": 75, "lenght": 1000, "to": "seminario"}, {"from": 76, "lenght": 1000, "to": "prova"}, {"from": 78, "lenght": 1000, "to": "seminario"}, {"from": 79, "lenght": 1000, "to": "facilidade"}, {"from": 80, "lenght": 1000, "to": "facilidade"}, {"from": 81, "lenght": 1000, "to": "seminario"}, {"from": 82, "lenght": 1000, "to": "prova"}, {"from": 86, "lenght": 1000, "to": "seminario"}, {"from": 87, "lenght": 1000, "to": "prova"}, {"from": 90, "lenght": 1000, "to": "facilidade"}, {"from": 92, "lenght": 1000, "to": "facilidade"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
