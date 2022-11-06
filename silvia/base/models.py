@@ -12,7 +12,7 @@ class aluno(models.Model):
 class turma(models.Model):
     curso = models.CharField(max_length=50)
     periodo = models.IntegerField()
-    tag = models.CharField(max_lenght=1)
+    tag = models.CharField(max_length=1)
 
 
 class professor(models.Model):
@@ -31,22 +31,22 @@ class sentimentos(models.Model):
 
 
 class disciplina(models.Model):
-    id_professor = models.ForeignKey(professor)
-    id_assunto = models.ForeignKey(assunto)
-    id_turma = models.ForeignKey(turma)
+    id_professor = models.ForeignKey(professor, on_delete=models.CASCADE)
+    id_assunto = models.ForeignKey(assunto, on_delete=models.CASCADE)
+    id_turma = models.ForeignKey(turma, on_delete=models.CASCADE)
     carga_horaria = models.IntegerField()
 
 
 class grade(models.Model):
-    id_aluno = models.ForeignKey(aluno)
-    id_disciplina = models.ForeignKey(disciplina)
+    id_aluno = models.ForeignKey(aluno, on_delete=models.CASCADE)
+    id_disciplina = models.ForeignKey(disciplina, on_delete=models.CASCADE)
 
 
 class avaliacao(models.Model):
-    id_sentimento = models.ForeignKey(sentimentos)
-    id_aluno = models.ForeignKey(aluno)
-    id_disciplina = models.ForeignKey(disciplina)  # opção de ser nulo
-    comentario = models.CharField(max_lenght=500)
+    id_sentimento = models.ForeignKey(sentimentos, on_delete=models.CASCADE)
+    id_aluno = models.ForeignKey(aluno, on_delete=models.CASCADE)
+    id_disciplina = models.ForeignKey(disciplina, on_delete=models.CASCADE)  # opção de ser nulo
+    comentario = models.CharField(max_length=500)
     intensidade = models.IntegerField()
     conhecimento = models.IntegerField()
     data = models.DateField()

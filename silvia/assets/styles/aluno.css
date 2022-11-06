@@ -1,18 +1,27 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
 body {
   font-family: 'Lexend', sans-serif;
+  font-size: 15px;
   margin: 0;
+  color: #262537;
 }
 
 body .content {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: #f6f6f0;
   padding: 20px;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+}
+
+body .content h1 {
+  text-transform: uppercase;
+  font-size: 28px;
+  margin-top: 30px;
 }
 
 body .content form {
@@ -25,41 +34,311 @@ body .content form {
           flex-direction: column;
 }
 
-body .content .sentimentBox {
+body .content form select {
+  background-color: none;
+  border-radius: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-family: unset;
+  margin-top: 5px;
+  padding: 16px 20px;
+  -webkit-text-stroke: 0.5px;
+  color: unset;
+  text-transform: uppercase;
   position: relative;
+  border: 1px solid #757575;
+}
+
+body .content form select::after {
+  content: "V";
+  color: #000;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #a9cf55;
+  border-radius: 50%;
+}
+
+body .content form select option {
+  background-color: unset;
   width: 100%;
 }
 
-body .content .sentimentBox > div {
-  width: calc(50% - 5px);
-  height: 150px;
+body .content form label[for="conhecimento"] {
+  margin-top: 10px;
+}
+
+body .content form .slider-container {
+  z-index: 3;
   position: relative;
-  background-color: aqua;
+  width: 100%;
+  text-align: justify;
+}
+
+body .content form .slider-container .slider {
+  z-index: 1;
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: calc(100% + 10px);
+  margin-top: 10px;
+  outline: none;
+  -webkit-appearance: none;
+  height: 2px;
+  background-color: #262537;
+}
+
+body .content form .slider-container .slider::-webkit-slider-thumb {
+  z-index: 4;
+  width: 15px;
+  height: 15px;
+  background-color: #262537;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+body .content form .slider-container span {
+  width: 100%;
+  height: 1em;
+  display: inline-block;
+}
+
+body .content form label[for="sentimento"] {
+  margin-top: 10px;
+}
+
+body .content form > h2 {
+  display: none;
+}
+
+body .content form label[for="comentario"] {
+  margin-top: 15px;
+}
+
+body .content .sentimentBox {
+  margin-top: 5px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: calc(calc(2 * 120px) + 10px);
+}
+
+body .content .sentimentBox .sentimentKind {
+  text-align: center;
+  word-wrap: break-word;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 0px 2px 2px rgba(24, 18, 72, 0.3);
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .content .sentimentBox > div {
+  --background-color: #757575;
+  background-color: var(--background-color);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: calc(50% - 5px);
+  height: 120px;
+  position: absolute;
   display: inline-block;
   border-radius: 15px;
+  overflow: hidden;
+  z-index: 2;
 }
 
 body .content .sentimentBox > div.box1 {
-  position: relative;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  --background-color: #f3cc49;
+  left: 0;
+  top: 0;
 }
 
 body .content .sentimentBox > div.box2 {
-  position: relative;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  --background-color: #a9cf55;
+  left: calc(50% + 5px);
+  top: 0;
 }
 
 body .content .sentimentBox > div.box3 {
-  position: relative;
-  bottom: 0;
-  margin-top: 5px;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  --background-color: #57b0ca;
+  top: calc(120px + 10px);
+  left: 0;
 }
 
 body .content .sentimentBox > div.box4 {
-  position: relative;
-  bottom: 0;
-  margin-top: 5px;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  --background-color: #f14440;
+  top: calc(120px + 10px);
+  left: calc(50% + 5px);
+}
+
+body .content .sentimentBox > div > div {
+  background-color: var(--background-color);
+  position: absolute;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 50%;
+  height: calc(120px / 2);
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  opacity: 0;
 }
 
 body .content .sentimentBox > div > div p {
   display: none;
+  word-wrap: break-word;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 0px 2px 2px rgba(24, 18, 72, 0.3);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 0px;
+  -webkit-text-stroke: 0.5px;
+}
+
+body .content .sentimentBox > div > div.box1 {
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  left: 0;
+  top: 0;
+}
+
+body .content .sentimentBox > div > div.box2 {
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  left: 50%;
+  top: 0;
+}
+
+body .content .sentimentBox > div > div.box3 {
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  top: calc(120px / 2);
+  left: 0;
+}
+
+body .content .sentimentBox > div > div.box4 {
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  top: calc(120px / 2);
+  left: 50%;
+}
+
+body .content .sentimentBox.selected > div {
+  z-index: 0;
+  background: none;
+}
+
+body .content .sentimentBox.selected > div:not(.selected) {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+body .content .sentimentBox.selected > div h3 {
+  display: none;
+}
+
+body .content .sentimentBox.selected > div.selected {
+  width: 100%;
+  height: calc(calc(2 * 120px) + 10px);
+  left: 0;
+  top: 0;
+}
+
+body .content .sentimentBox.selected > div.selected > div {
+  border-radius: 15px;
+  height: 120px;
+  width: calc(50% - 5px);
+  opacity: 1;
+}
+
+body .content .sentimentBox.selected > div.selected > div.box2, body .content .sentimentBox.selected > div.selected > div.box4 {
+  left: calc(50% + 5px);
+}
+
+body .content .sentimentBox.selected > div.selected > div.box3, body .content .sentimentBox.selected > div.selected > div.box4 {
+  top: calc(120px + 10px);
+}
+
+body .content .sentimentBox.selected > div.selected > div p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+}
+
+body .content textarea {
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+}
+
+body .content button[type="submit"] {
+  --background-color: #d3d3d3;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  background-color: var(--background-color);
+  color: #757575;
+  font-size: 18px;
+  padding: 16px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: start;
+  position: relative;
+  overflow: hidden;
+  /*text-shadow: 0px 2px 2px rgba(24, 18, 72, 0.3); */
+}
+
+body .content button[type="submit"]::after {
+  content: "▶";
+  opacity: 0.8;
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 10px;
+  border-radius: 50%;
 }
 /*# sourceMappingURL=aluno.css.map */
