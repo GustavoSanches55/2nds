@@ -1,30 +1,39 @@
 import './App.css';
-import Alunos from './components/alunos';
+import Alunos from './pages/alunos';
+import Professores from './pages/professores';
 import React, { useState, useEffect } from 'react';
+import Head from './components/head';
+import ReactDOM from "react-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
 
 function App() {
 
-  const [alunos, setAlunos] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/listarAlunos/' , {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-    }
-  })
-      .then(res => res.json())
-      .then(data => setAlunos(data))
-
-  }, []);
-
-
   return (
+  <Router>
     <div className="App">
-      {alunos.map(aluno => {
-        return <h2>{aluno}</h2>
-      })}
+      <Head />
+
+      <Switch>
+        <Route path="/alunos">
+          <Alunos />
+        </Route>
+    
+        <Route path="/professores">
+          <Professores />
+        </Route>
+    
+      </Switch>
     </div>
+  </Router>
+  
+
   );
 }
 

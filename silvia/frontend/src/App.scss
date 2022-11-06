@@ -15,8 +15,7 @@ $black: #d2cbe5;
 
 $white: #fdfdfa;
 $gray: #757575;
-$black: #262537;
-
+$black: #262537; 
 
 
 .shadow-filter {
@@ -380,10 +379,55 @@ button{
     outline: none;
 }
 
+.insight-status{
+    width: 100%;
+    text-align: center;
+    #update_insights{
+        padding: 16px 20px;
+        border: 1px solid #{$gray};
+        border-radius: 10px;
+    }
+}
+
+.content.snap{
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+
+    .insight{
+        scroll-snap-align: start;
+        height: 100vh;
+        width: 100%;
+        &[data-page="2"]{
+            background-color: #57b0ca;
+        }
+        &[data-page="3"]{
+            background-color: #a9cf55;
+        }
+    }
+}
+
+.header{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100vw;
+    .logo{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: inline-block;
+
+    }
+}
+
 .footer{
     height: 64px;
     background: #{$white};
     position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
     display: flex;
