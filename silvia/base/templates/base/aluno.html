@@ -114,7 +114,7 @@
             </span></button>
         <a href="menu" class="menu"><span class="material-symbols-outlined">
             density_medium
-            </span></button>
+            </span></a>
     </div>
     <script>
         document.querySelectorAll(".category").forEach(element => {
@@ -126,6 +126,8 @@
                     }, 140, this);
                 })
         });
+
+
         document.querySelectorAll(".sentimentBox .sentiment").forEach(element => {
             element.parentElement.addEventListener("click", function(){
                 if (this.parentElement.classList.contains("avaliable")){
@@ -141,6 +143,7 @@
                 }
             })
         });
+
         
         
     </script>
