@@ -48,6 +48,6 @@ class avaliacao(models.Model):
     id_disciplina = models.ForeignKey(
         disciplina, on_delete=models.CASCADE)
     comentario = models.CharField(max_length=500, null=True, blank=True)
-    intensidade = models.IntegerField()
     conhecimento = models.IntegerField()
+    intensidade = models.IntegerField()
     data = models.DateField()
