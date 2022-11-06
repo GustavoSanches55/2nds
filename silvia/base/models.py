@@ -2,33 +2,51 @@ from django.db import models
 
 # Create your models here.
 
-# create a class for the following tables (comentário criado para o copilot fazer pra mim 😉):
-# 1. alunos:
-# - id (int)
-# - nome (str)
 
-# 2. disciplinas:
-# - id (int)
-# - nome (str)
-# - professor (str)
-
-# 3. notas:
-# - id (int)
-# - aluno (int)
-# - id_disciplina (int)
-# - nota (float)
+class aluno(models.Model):
+    nome = models.CharField(max_length=50)
+    genero = models.CharField(max_length=20)  # DEFINIR COMO POSSIVEL NULL
+    data_nascimento = models.DateField()
 
 
-class Aluno(models.Model):
-    nome = models.CharField(max_length=100)
-
-class Disciplina(models.Model):
-    nome = models.CharField(max_length=100)
-    professor = models.CharField(max_length=100)
-
-class Nota(models.Model):
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)
-    nota = models.FloatField()
+class turma(models.Model):
+    curso = models.CharField(max_length=50)
+    periodo = models.IntegerField()
+    tag = models.CharField(max_lenght=1)
 
 
+class professor(models.Model):
+    nome = models.CharField(max_length=50)
+    genero = models.CharField(max_length=20)  # DEFINIR COMO POSSIVEL NULL
+    data_nascimento = models.DateField()
+
+
+class assunto(models.Model):
+    nome = models.CharField(max_length=50)
+
+
+class sentimentos(models.Model):
+    nome = models.CharField(max_length=50)
+    carater = models.CharField(max_length=10)
+
+
+class disciplina(models.Model):
+    id_professor = models.ForeignKey(professor)
+    id_assunto = models.ForeignKey(assunto)
+    id_turma = models.ForeignKey(turma)
+    carga_horaria = models.IntegerField()
+
+
+class grade(models.Model):
+    id_aluno = models.ForeignKey(aluno)
+    id_disciplina = models.ForeignKey(disciplina)
+
+
+class avaliacao(models.Model):
+    id_sentimento = models.ForeignKey(sentimentos)
+    id_aluno = models.ForeignKey(aluno)
+    id_disciplina = models.ForeignKey(disciplina)  # opção de ser nulo
+    comentario = models.CharField(max_lenght=500)
+    intensidade = models.IntegerField()
+    conhecimento = models.IntegerField()
+    data = models.DateField()
