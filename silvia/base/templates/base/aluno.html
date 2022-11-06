@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'styles/aluno.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +15,10 @@
         <form action="">
             <label for="materia">escolha a disciplina:</label>
             <select name="materia" id="input_materia">
-                <option value="none">Toque para opções</option>
+                <option value="matematica">Matemática</option>
+                <option value="portugues">Português</option>
+                <option value="historia">História</option>
+                <option value="geografia">Geografia</option>
             </select>
             <label for="conhecimento">conhecimento na matéria:</label>
             <div class="slider-container">
@@ -102,9 +106,15 @@
         </form>
     </div>
     <div class="footer">
-        <button class="home">🏠</button>
-        <button class="mySentiments">❤</button>
-        <button class="menu">📝</button>
+        <a href="home" class="home"><span class="material-symbols-outlined">
+            home
+            </span></button>
+        <a href="sentimentos" class="mySentiments"><span class="material-symbols-outlined">
+            favorite
+            </span></button>
+        <a href="menu" class="menu"><span class="material-symbols-outlined">
+            density_medium
+            </span></button>
     </div>
     <script>
         document.querySelectorAll(".category").forEach(element => {
@@ -125,6 +135,9 @@
                     color = getComputedStyle(this).getPropertyValue("--background-color")
                     document.getElementById("submit").style.setProperty("--background-color", color);
                     document.getElementById("submit").classList.add("sentiment-selected");
+                    setTimeout(function(e){
+                        document.getElementById("input_intensidade").parentElement.classList.add("shadow-filter");
+                    }, 140, this);
                 }
             })
         });
