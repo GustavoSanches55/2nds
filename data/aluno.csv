@@ -1,25 +1,25 @@
-﻿id_aluno;nome;genero;data_nascimento
-1;Flavio;masculino;13/10/2002
-2;Carlos;masculino;08/10/2002
-3;Lucas;masculino;28/09/2002
-4;Jorge;masculino;03/01/2003
-5;Renata;feminino;21/08/2002
-6;Flavia;feminino;26/08/2002
-7;Amanda;feminino;04/07/2002
-8;Ana Julia;feminino;08/01/2003
-9;Julia;feminino;21/06/2002
-10;Bruno;masculino;04/06/2002
-11;Breno;masculino;03/03/2003
-12;Daniela;feminino;18/10/2002
-13;Rafaela;feminino;04/11/2002
-14;Isabela;feminino;08/12/2003
-15;Maria Eduarda;feminino;21/12/2002
-16;Sofia;feminino;17/11/2002
-17;Barbara;feminino;18/04/2003
-18;Maria Clara;feminino;16/11/2002
-19;Rodrigo;masculino;07/09/2002
-20;Guilherme;masculino;18/03/2003
-21;Felipe;masculino;12/09/2002
-22;João;masculino;13/07/2002
-23;Gustavo;masculino;14/02/2003
-24;Pedro;masculino;27/02/2002
+﻿id_aluno;nome;genero;data_nascimento;id_usuario;id_instituicao
+1;Flavio;masculino;13/10/2002;2;1
+2;Carlos;masculino;08/10/2002;3;1
+3;Lucas;masculino;28/09/2002;4;1
+4;Jorge;masculino;03/01/2003;5;1
+5;Renata;feminino;21/08/2002;6;1
+6;Flavia;feminino;26/08/2002;7;1
+7;Amanda;feminino;04/07/2002;8;1
+8;Ana Julia;feminino;08/01/2003;9;1
+9;Julia;feminino;21/06/2002;10;1
+10;Bruno;masculino;04/06/2002;11;1
+11;Breno;masculino;03/03/2003;12;1
+12;Daniela;feminino;18/10/2002;13;1
+13;Rafaela;feminino;04/11/2002;14;1
+14;Isabela;feminino;08/12/2003;15;1
+15;Maria Eduarda;feminino;21/12/2002;16;1
+16;Sofia;feminino;17/11/2002;17;1
+17;Barbara;feminino;18/04/2003;18;1
+18;Maria Clara;feminino;16/11/2002;19;1
+19;Rodrigo;masculino;07/09/2002;20;1
+20;Guilherme;masculino;18/03/2003;21;1
+21;Felipe;masculino;12/09/2002;22;1
+22;João;masculino;13/07/2002;23;1
+23;Gustavo;masculino;14/02/2003;24;1
+24;Pedro;masculino;27/02/2002;25;1
