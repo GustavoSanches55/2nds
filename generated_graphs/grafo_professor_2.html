@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#FFFFFF", "id": "dificuldade", "label": "dificuldade", "shape": "dot", "size": 20}, {"color": "#FFFFFF", "id": "facilidade", "label": "facilidade", "shape": "dot", "size": 20}, {"color": "#FFFFFF", "id": "prova", "label": "prova", "shape": "dot", "size": 20}, {"color": "#FFFFFF", "id": "seminario", "label": "seminario", "shape": "dot", "size": 20}, {"color": "#222725", "id": "ciencias", "label": "ciencias", "shape": "dot", "size": 10, "title": "Sandra"}, {"color": "#A9CF54", "id": 145, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#A9CF54", "id": 146, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#F1433F", "id": 147, "label": " ", "shape": "dot", "title": "puto", "value": 2}, {"color": "#F1433F", "id": 148, "label": " ", "shape": "dot", "title": "puto", "value": 4}, {"color": "#A9CF54", "id": 149, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 1}, {"color": "#F7E967", "id": 150, "label": " ", "shape": "dot", "title": "feliz", "value": 2}, {"color": "#70B7BA", "id": 151, "label": " ", "shape": "dot", "title": "triste", "value": 5}, {"color": "#A9CF54", "id": 152, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 5}, {"color": "#A9CF54", "id": 153, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#A9CF54", "id": 154, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 5}, {"color": "#A9CF54", "id": 155, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 1}, {"color": "#A9CF54", "id": 156, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 4}, {"color": "#F7E967", "id": 157, "label": " ", "shape": "dot", "title": "feliz", "value": 4}, {"color": "#F1433F", "id": 158, "label": " ", "shape": "dot", "title": "puto", "value": 2}, {"color": "#A9CF54", "id": 159, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#A9CF54", "id": 160, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 1}, {"color": "#A9CF54", "id": 161, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 5}, {"color": "#A9CF54", "id": 162, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#F7E967", "id": 163, "label": " ", "shape": "dot", "title": "feliz", "value": 4}, {"color": "#70B7BA", "id": 164, "label": " ", "shape": "dot", "title": "triste", "value": 3}, {"color": "#A9CF54", "id": 165, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#A9CF54", "id": 166, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 5}, {"color": "#A9CF54", "id": 167, "label": " ", "shape": "dot", "title": "esperan\u00e7oso", "value": 2}, {"color": "#F1433F", "id": 168, "label": " ", "shape": "dot", "title": "puto", "value": 2}, {"id": "disposto-bom-ciencias", "label": " ", "shape": "dot", "size": 0}, {"id": "disposto-ruim-ciencias", "label": " ", "shape": "dot", "size": 0}, {"id": "indisposto-bom-ciencias", "label": " ", "shape": "dot", "size": 0}, {"id": "indisposto-ruim-ciencias", "label": " ", "shape": "dot", "size": 0}]);
+        edges = new vis.DataSet([{"color": "#FFFFFF", "from": 145, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 146, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 147, "length": 5, "to": "disposto-ruim-ciencias"}, {"color": "#FFFFFF", "from": 148, "length": 5, "to": "disposto-ruim-ciencias"}, {"color": "#FFFFFF", "from": 149, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 150, "length": 5, "to": "disposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 151, "length": 5, "to": "indisposto-ruim-ciencias"}, {"color": "#FFFFFF", "from": 152, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 153, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 154, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 155, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 156, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 157, "length": 5, "to": "disposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 158, "length": 5, "to": "disposto-ruim-ciencias"}, {"color": "#FFFFFF", "from": 159, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 160, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 161, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 162, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 163, "length": 5, "to": "disposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 164, "length": 5, "to": "indisposto-ruim-ciencias"}, {"color": "#FFFFFF", "from": 165, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 166, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 167, "length": 5, "to": "indisposto-bom-ciencias"}, {"color": "#FFFFFF", "from": 168, "length": 5, "to": "disposto-ruim-ciencias"}, {"from": 145, "to": "ciencias"}, {"from": 146, "to": "ciencias"}, {"from": 147, "to": "ciencias"}, {"from": 148, "to": "ciencias"}, {"from": 149, "to": "ciencias"}, {"from": 150, "to": "ciencias"}, {"from": 151, "to": "ciencias"}, {"from": 152, "to": "ciencias"}, {"from": 153, "to": "ciencias"}, {"from": 154, "to": "ciencias"}, {"from": 155, "to": "ciencias"}, {"from": 156, "to": "ciencias"}, {"from": 157, "to": "ciencias"}, {"from": 158, "to": "ciencias"}, {"from": 159, "to": "ciencias"}, {"from": 160, "to": "ciencias"}, {"from": 161, "to": "ciencias"}, {"from": 162, "to": "ciencias"}, {"from": 163, "to": "ciencias"}, {"from": 164, "to": "ciencias"}, {"from": 165, "to": "ciencias"}, {"from": 166, "to": "ciencias"}, {"from": 167, "to": "ciencias"}, {"from": 168, "to": "ciencias"}, {"from": 145, "lenght": 1000, "to": "dificuldade"}, {"from": 149, "lenght": 1000, "to": "prova"}, {"from": 153, "lenght": 1000, "to": "seminario"}, {"from": 154, "lenght": 1000, "to": "dificuldade"}, {"from": 155, "lenght": 1000, "to": "seminario"}, {"from": 157, "lenght": 1000, "to": "prova"}, {"from": 158, "lenght": 1000, "to": "prova"}, {"from": 159, "lenght": 1000, "to": "facilidade"}, {"from": 160, "lenght": 1000, "to": "prova"}, {"from": 161, "lenght": 1000, "to": "dificuldade"}, {"from": 163, "lenght": 1000, "to": "seminario"}, {"from": 164, "lenght": 1000, "to": "facilidade"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
