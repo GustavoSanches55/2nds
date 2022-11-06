@@ -3,10 +3,22 @@ from django.db import models
 # Create your models here.
 
 
+class usuario(models.Model):
+    login = models.CharField(max_length=50)
+    senha = models.CharField(max_length=50)
+
+
+class instituicao(models.Model):
+    nome_instituicao = models.CharField(max_length=50)
+    id_usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
+
+
 class aluno(models.Model):
     nome_aluno = models.CharField(max_length=50)
     genero_aluno = models.CharField(max_length=20, null=True, blank=True)
     data_nascimento_aluno = models.DateField()
+    id_usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
+    id_insituicao = models.ForeignKey(instituicao, on_delete=models.CASCADE)
 
 
 class turma(models.Model):
@@ -19,6 +31,8 @@ class professor(models.Model):
     nome_professor = models.CharField(max_length=50)
     genero_professor = models.CharField(max_length=20, null=True, blank=True)
     data_nascimento_professor = models.DateField()
+    id_usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
+    id_insituicao = models.ForeignKey(instituicao, on_delete=models.CASCADE)
 
 
 class assunto(models.Model):
