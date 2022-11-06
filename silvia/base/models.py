@@ -4,9 +4,9 @@ from django.db import models
 
 
 class aluno(models.Model):
-    nome = models.CharField(max_length=50)
-    genero = models.CharField(max_length=20)  # DEFINIR COMO POSSIVEL NULL
-    data_nascimento = models.DateField()
+    nome_aluno = models.CharField(max_length=50)
+    genero_aluno = models.CharField(max_length=20, null=True, blank=True)
+    data_nascimento_aluno = models.DateField()
 
 
 class turma(models.Model):
@@ -16,17 +16,17 @@ class turma(models.Model):
 
 
 class professor(models.Model):
-    nome = models.CharField(max_length=50)
-    genero = models.CharField(max_length=20)  # DEFINIR COMO POSSIVEL NULL
-    data_nascimento = models.DateField()
+    nome_professor = models.CharField(max_length=50)
+    genero_professor = models.CharField(max_length=20, null=True, blank=True)
+    data_nascimento_professor = models.DateField()
 
 
 class assunto(models.Model):
-    nome = models.CharField(max_length=50)
+    nome_assunto = models.CharField(max_length=50)
 
 
 class sentimentos(models.Model):
-    nome = models.CharField(max_length=50)
+    nome_sentimentos = models.CharField(max_length=50)
     carater = models.CharField(max_length=10)
 
 
@@ -45,8 +45,9 @@ class grade(models.Model):
 class avaliacao(models.Model):
     id_sentimento = models.ForeignKey(sentimentos, on_delete=models.CASCADE)
     id_aluno = models.ForeignKey(aluno, on_delete=models.CASCADE)
-    id_disciplina = models.ForeignKey(disciplina, on_delete=models.CASCADE)  # opção de ser nulo
-    comentario = models.CharField(max_length=500)
+    id_disciplina = models.ForeignKey(
+        disciplina, on_delete=models.CASCADE)
+    comentario = models.CharField(max_length=500, null=True, blank=True)
     intensidade = models.IntegerField()
     conhecimento = models.IntegerField()
     data = models.DateField()
