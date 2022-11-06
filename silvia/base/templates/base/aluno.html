@@ -27,7 +27,7 @@
             <h2>sentimentos</h2>
             <input type="hidden" name="sentimento" id="input_sentimento">
             <div class="sentimentBox">
-                <div class="box1">
+                <div class="category box1">
                     <h3 class="sentimentKind">Indisposto<br>Bom</h3>
                     <div class="box1">
                         <p class="sentiment">Sentimento 1</p>
@@ -42,7 +42,7 @@
                         <p class="sentiment">Sentimento 4</p>
                     </div>
                 </div>
-                <div class="box2">
+                <div class="category box2">
                     <h3 class="sentimentKind">Disposto<br>Bom</h3>
                     <div class="box1">
                         <p class="sentiment">Sentimento 1</p>
@@ -57,7 +57,7 @@
                         <p class="sentiment">Sentimento 4</p>
                     </div>
                 </div>
-                <div class="box3">
+                <div class="category box3">
                     <h3 class="sentimentKind">Indisposto<br>Ruim</h3>
                     <div class="box1">
                         <p class="sentiment">Sentimento 1</p>
@@ -72,7 +72,7 @@
                         <p class="sentiment">Sentimento 4</p>
                     </div>
                 </div>
-                <div class="box4">
+                <div class="category box4">
                     <h3 class="sentimentKind">Disposto<br>Ruim</h3>
                     <div class="box1">
                         <p class="sentiment">Sentimento 1</p>
@@ -87,10 +87,18 @@
                         <p class="sentiment">Sentimento 4</p>
                     </div>
                 </div>
+                <label for="intensidade">Qual é a intensidade do seu sentimento?</label>
+                <div class="slider-container">
+                    | | | | |
+                    <span> </span>
+                    <div class="ends"></div>
+                    <input type="range" name="intensidade" id="input_intensidade" min="1" max="5" value="3" step="1" class="slider"> 
+                </div>
             </div>
+            
             <label for="comentario">por que você se sente dessa forma sobre a matéria?</label>
             <textarea name="comentario" id="input_comentario" cols="40" rows="8"></textarea>
-            <button type="submit">enviar</button>
+            <button id="submit" type="submit">enviar</button>
         </form>
     </div>
     <div class="footer">
@@ -99,12 +107,29 @@
         <button class="menu">📝</button>
     </div>
     <script>
-        document.getElementsByClassName("sentimentBox")[0].childNodes.forEach(element => {
-            element.addEventListener("click", function(){
-                document.getElementsByClassName("sentimentBox")[0].classList.add("selected");
-                this.classList.add("selected");
+        document.querySelectorAll(".category").forEach(element => {
+                element.addEventListener("click", function(){
+                    document.getElementsByClassName("sentimentBox")[0].classList.add("category-selected");
+                    this.classList.add("selected");
+                    setTimeout(function(e){
+                        e.classList.add("avaliable");
+                    }, 140, this);
+                })
+        });
+        document.querySelectorAll(".sentimentBox .sentiment").forEach(element => {
+            element.parentElement.addEventListener("click", function(){
+                if (this.parentElement.classList.contains("avaliable")){
+                    this.classList.add("selected");
+                    document.getElementsByClassName("sentimentBox")[0].classList.add("sentiment-selected");
+                    document.getElementById("input_sentimento").value = this.getElementsByClassName("sentiment")[0].innerHTML;
+                    color = getComputedStyle(this).getPropertyValue("--background-color")
+                    document.getElementById("submit").style.setProperty("--background-color", color);
+                    document.getElementById("submit").classList.add("sentiment-selected");
+                }
             })
         });
+        
+        
     </script>
 </body>
 </html>

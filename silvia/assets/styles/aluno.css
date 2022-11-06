@@ -1,5 +1,10 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
+.shadow-filter {
+  -webkit-filter: drop-shadow(0px 2px 2px rgba(24, 18, 72, 0.3));
+          filter: drop-shadow(0px 2px 2px rgba(24, 18, 72, 0.3));
+}
+
 body {
   font-family: 'Lexend', sans-serif;
   font-size: 15px;
@@ -73,6 +78,7 @@ body .content form label[for="conhecimento"] {
 
 body .content form .slider-container {
   z-index: 3;
+  margin-top: 10px;
   position: relative;
   width: 100%;
   text-align: justify;
@@ -93,6 +99,8 @@ body .content form .slider-container .slider {
 
 body .content form .slider-container .slider::-webkit-slider-thumb {
   z-index: 4;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 15px;
   height: 15px;
   background-color: #262537;
@@ -152,7 +160,7 @@ body .content .sentimentBox .sentimentKind {
           justify-content: center;
 }
 
-body .content .sentimentBox > div {
+body .content .sentimentBox .category {
   --background-color: #757575;
   background-color: var(--background-color);
   -webkit-transition: all 0.5s;
@@ -166,7 +174,7 @@ body .content .sentimentBox > div {
   z-index: 2;
 }
 
-body .content .sentimentBox > div.box1 {
+body .content .sentimentBox .category.box1 {
   -webkit-transform-origin: top left;
           transform-origin: top left;
   --background-color: #f3cc49;
@@ -174,7 +182,7 @@ body .content .sentimentBox > div.box1 {
   top: 0;
 }
 
-body .content .sentimentBox > div.box2 {
+body .content .sentimentBox .category.box2 {
   -webkit-transform-origin: top right;
           transform-origin: top right;
   --background-color: #a9cf55;
@@ -182,7 +190,7 @@ body .content .sentimentBox > div.box2 {
   top: 0;
 }
 
-body .content .sentimentBox > div.box3 {
+body .content .sentimentBox .category.box3 {
   -webkit-transform-origin: bottom left;
           transform-origin: bottom left;
   --background-color: #57b0ca;
@@ -190,7 +198,7 @@ body .content .sentimentBox > div.box3 {
   left: 0;
 }
 
-body .content .sentimentBox > div.box4 {
+body .content .sentimentBox .category.box4 {
   -webkit-transform-origin: bottom right;
           transform-origin: bottom right;
   --background-color: #f14440;
@@ -198,7 +206,7 @@ body .content .sentimentBox > div.box4 {
   left: calc(50% + 5px);
 }
 
-body .content .sentimentBox > div > div {
+body .content .sentimentBox .category > div {
   background-color: var(--background-color);
   position: absolute;
   -webkit-transition: all 0.5s;
@@ -211,7 +219,7 @@ body .content .sentimentBox > div > div {
   opacity: 0;
 }
 
-body .content .sentimentBox > div > div p {
+body .content .sentimentBox .category > div p {
   display: none;
   word-wrap: break-word;
   color: white;
@@ -234,75 +242,141 @@ body .content .sentimentBox > div > div p {
   -webkit-text-stroke: 0.5px;
 }
 
-body .content .sentimentBox > div > div.box1 {
+body .content .sentimentBox .category > div.box1 {
   -webkit-transform-origin: top left;
           transform-origin: top left;
   left: 0;
   top: 0;
 }
 
-body .content .sentimentBox > div > div.box2 {
+body .content .sentimentBox .category > div.box2 {
   -webkit-transform-origin: top right;
           transform-origin: top right;
   left: 50%;
   top: 0;
 }
 
-body .content .sentimentBox > div > div.box3 {
+body .content .sentimentBox .category > div.box3 {
   -webkit-transform-origin: bottom left;
           transform-origin: bottom left;
   top: calc(120px / 2);
   left: 0;
 }
 
-body .content .sentimentBox > div > div.box4 {
+body .content .sentimentBox .category > div.box4 {
   -webkit-transform-origin: bottom right;
           transform-origin: bottom right;
   top: calc(120px / 2);
   left: 50%;
 }
 
-body .content .sentimentBox.selected > div {
+body .content .sentimentBox label[for="intensidade"] {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  --color: #fff0;
+  -webkit-transform: translate(0, -6px);
+          transform: translate(0, -6px);
+  color: var(--color);
+  position: absolute;
+  display: inline-block;
+  top: 65%;
+  text-align: center;
+  width: 100%;
+}
+
+body .content .sentimentBox .slider-container {
+  width: 90%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  --base-color: #fff;
+  color: var(--base-color);
+}
+
+body .content .sentimentBox .slider-container .slider {
+  background-color: #fff;
+}
+
+body .content .sentimentBox .slider-container .slider::-webkit-slider-thumb {
+  background-color: var(--base-color);
+}
+
+body .content .sentimentBox.category-selected .category {
   z-index: 0;
   background: none;
 }
 
-body .content .sentimentBox.selected > div:not(.selected) {
-  -webkit-transform: scale(0);
-          transform: scale(0);
+body .content .sentimentBox.category-selected .category:not(.selected) {
+  -webkit-transform: scale(0) rotate(180deg);
+          transform: scale(0) rotate(180deg);
 }
 
-body .content .sentimentBox.selected > div h3 {
+body .content .sentimentBox.category-selected .category h3 {
   display: none;
 }
 
-body .content .sentimentBox.selected > div.selected {
+body .content .sentimentBox.category-selected .category.selected {
   width: 100%;
   height: calc(calc(2 * 120px) + 10px);
   left: 0;
   top: 0;
 }
 
-body .content .sentimentBox.selected > div.selected > div {
+body .content .sentimentBox.category-selected .category.selected > div {
   border-radius: 15px;
   height: 120px;
   width: calc(50% - 5px);
   opacity: 1;
+  overflow: hidden;
 }
 
-body .content .sentimentBox.selected > div.selected > div.box2, body .content .sentimentBox.selected > div.selected > div.box4 {
-  left: calc(50% + 5px);
-}
-
-body .content .sentimentBox.selected > div.selected > div.box3, body .content .sentimentBox.selected > div.selected > div.box4 {
-  top: calc(120px + 10px);
-}
-
-body .content .sentimentBox.selected > div.selected > div p {
+body .content .sentimentBox.category-selected .category.selected > div p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: scale(0) rotate(10deg);
+          transform: scale(0) rotate(10deg);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+body .content .sentimentBox.category-selected .category.selected > div.box2, body .content .sentimentBox.category-selected .category.selected > div.box4 {
+  left: calc(50% + 5px);
+}
+
+body .content .sentimentBox.category-selected .category.selected > div.box3, body .content .sentimentBox.category-selected .category.selected > div.box4 {
+  top: calc(120px + 10px);
+}
+
+body .content .sentimentBox.category-selected .category.selected > div.selected {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+body .content .sentimentBox.category-selected .category.selected.avaliable > div p {
   font-size: 18px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+body .content .sentimentBox.sentiment-selected label[for="intensidade"] {
+  --color: #fff;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  text-shadow: 0px 2px 2px rgba(24, 18, 72, 0.3);
+}
+
+body .content .sentimentBox.sentiment-selected .slider-container {
+  top: 80%;
 }
 
 body .content textarea {
@@ -325,7 +399,8 @@ body .content button[type="submit"] {
   text-align: start;
   position: relative;
   overflow: hidden;
-  /*text-shadow: 0px 2px 2px rgba(24, 18, 72, 0.3); */
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 body .content button[type="submit"]::after {
@@ -340,5 +415,11 @@ body .content button[type="submit"]::after {
           transform: translateY(-50%);
   width: 10px;
   border-radius: 50%;
+}
+
+body .content button[type="submit"].sentiment-selected {
+  color: #fff;
+  text-shadow: 0px 2px 2px rgba(24, 18, 72, 0.3);
+  cursor: pointer;
 }
 /*# sourceMappingURL=aluno.css.map */
