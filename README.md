@@ -2,6 +2,10 @@
 
 ## **S**entiment **I**nsights in **L**earning **V**isualized through **I**ntuitive **A**nalysis
 
+## Protótipo
+https://lucastreuke.github.io/Silvia2ndPrototype
+
+
 Quando se pensa em como melhorar o processo de ensino e aprendizagem, nesse caso com ciência de dados, a primeira coisa que vem a mente é desenvolver uma ferramenta que facilite ou a coleta de informações ou a sumarização das mesmas. Porém, essas soluções falham em tratar de problemas emocionais e de comunicação em sala de aula. 
 
 A **SILVIA** é um mecanismo de feedback dos alunos, tanto para instituição de ensino quanto para o professor, de forma humanizada. A humanização do processo se dá ao afastar-se de perguntas que quantifiquem diretamente o descontentamento com a matéria.
@@ -22,6 +26,22 @@ Para tal, desenvolvemos uma tela inicial do usuário aluno simples.
 
 Os sentimentos possíveis são codificados em quatro categorias diferentes, identificados fortemente por sua cor.
 
+>   ## Sentimentos:
+>   
+>   **Indisposto bom**
+>   Calma, confiança, esperança, satisfacao
+>   
+>   **Indisposto ruim**
+>   Medo,  tédio, tristeza, cansaço
+>   
+>   **Disposto bom**
+>   Empolgação, otimismo, interesse, alegria 
+>
+>   **Disposto ruim**
+>   Indignacão, raiva, estresse, ansiedade
+>
+>   *disclaimer:* o termo disposto e indisposto estão sendo empregados no sentido de estar agitado/ativo e tranquilo/passivo respectivamente.
+
 Os dados coletados nessa etapa são:
 
 -   Matéria
@@ -33,8 +53,6 @@ Os dados coletados nessa etapa são:
 Todas as respostas vão parar em um banco Sqlite3. Por meio do Django. Uma vez tendo os dados coletados, podemos gerar análilses diversas.
 
 Vale resaltar nesse ponto que professores apenas poderão visualizar dados de suas matérias. Gráficos/Grafos mais amplos estarão disponíveis apenas para a instuição.
-
-### Gráficos
 
 ### Grafos
 
@@ -82,6 +100,24 @@ Overview first, zoom and filter, then details-on-demand "
 
 Criando um caminho claro: primeiro observa o grafo geral e nota disparidades (matérias com muitos sentimentos do mesmo tipo, por exemplo), em sequência, filtra e adiciona detalhes, a fim de auxiliar na tomada de decisão.
 
+### Gráficos
+
+Além de toda a informação dada pelos gráfos, também existirá uma auxílio por gráficos. Estes sendo o seguinte:
+
+- Um gráfico de histograma que mostra a porcentagem de alunos em cada categoria de conhecimento. Permite cruzar o conhecimento com a satisfação.
+
+![Histograma](imagens_relatorio\histograma.jpg)
+
+
+-   Um gráfico de barras para mostrar a quantidade de avaliações em cada categoria de sentimento.
+
+![gráfico de barras](imagens_relatorio\grafico_barras.jpg)
+
+-   Uma análise temporal do sentimentos,  onde são caluladas as médias diáriass dos feedbacks boas e ruins.
+
+![analise de tempo](imagens_relatorio\analise_tempo.jpg)
+
+
 ### Modelagem do banco de dados
 
 Modelamos um banco de dados focado na avaliação, imagem a seguir:
@@ -89,3 +125,9 @@ Modelamos um banco de dados focado na avaliação, imagem a seguir:
 ![Banco](imagens_relatorio\banco.png)
 
 *nota*: os nomes de algumas entidades como disciplina são um pouco abstratos. Não se apegue a eles para a compreensão geral do banco.
+
+### Conclusão
+
+Dento tudo isso dito, é de suma importância manter a saúde mental em dia com objetivo de render e aprender mais. E para tal, o professor tem um papel chave em não sobrecarregar físicamente e mentalmente os alunos.
+
+Acreditamos fielmente que a **SILVIA** tem a capacidade de melhorar o intermédio de aluno-professor, tornando o professor mais consciente de suas decisões e de suas consequências, e tornar o ensino melhor através de visualização e coleta de dados continua.
