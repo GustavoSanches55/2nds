@@ -1,13 +1,27 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 from .models import *
 from .serializer import *
 from .utils import *
+from .graph_gen import *
 
 # Create your views here.
+#We need an request to run a script to generate graphs, so we need to create a view and a url for it in order to acess it in the react frontend
+
+
+def graph_make(request):    
+    random_words = create_random_words() #Aqui nos gostariamos de parsear com um modelo de nlp as avaliacoes para remoçao de stop words e entao usar essas palavras, porem fizemos aleatorio para demonstrar devido a falta de tempo
+    df_final, disciplina, professor = create_df(random_words)
+    create_general_graph(df_final, disciplina, professor)
+    for teacher_id in df_final.id_professor_id.unique():
+        create_teacher_graph(df_final, disciplina, professor, teacher_id)
+    return HttpResponse("Graphs created")
+
+
+
 
 @api_view(['GET'])
 def get_route(request):
