@@ -13,7 +13,7 @@ const Professores = () => {
     </div>
     <div class="content snap">
         <section data-page="1" class="insight">
-            <h1>Professores</h1>
+            <h1>Dashboard</h1>
             
             <div class="greetings">
                 <p>

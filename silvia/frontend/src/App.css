@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap");
+body {
+  --cor-disciplina: rgb(40, 145, 221);
+}
+
 .shadow-filter {
   -webkit-filter: drop-shadow(0px 2px 2px rgba(24, 18, 72, 0.3));
           filter: drop-shadow(0px 2px 2px rgba(24, 18, 72, 0.3));
@@ -480,6 +484,28 @@ button {
 
 .content.snap .insight[data-page="3"] {
   background-color: #a9cf55;
+}
+
+.content.snap .insight #input_disciplina {
+  width: 100%;
+  padding: 30px 25px;
+  background-color: var(--cor-disciplina);
+}
+
+.content.snap .insight button {
+  border-radius: 15px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-transform: capitalize;
 }
 
 .header {
