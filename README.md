@@ -22,7 +22,7 @@ A idéia é de tempo em tempo possibilitar o feedback de certas matérias, aos p
 
 Para tal, desenvolvemos uma tela inicial do usuário aluno simples.
 
-![tela inicial aplicativo](imagens_relatorio\tela_inicial.png)
+![tela inicial aplicativo](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/tela_inicial.png)
 
 Os sentimentos possíveis são codificados em quatro categorias diferentes, identificados fortemente por sua cor.
 
@@ -73,7 +73,7 @@ Observando apenas essa visualização conseguimos ter uma noção geral do decor
 
 Entretanto, o verdadeiro valor do Grafo Geral se dá ao combiná-lo com filtros e o grafo a seguir.
 
-![Grafo professor](imagens_relatorio\grafo_professor.jpg)
+![Grafo professor](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/grafo_professor.jpg)
 
 O grafo acima é especializado para um professor em específico. Nesse exemplo, o professor de geografia. Através dele é possível notar a satisfação geral da turma e relacionar com palavras chaves.
 
@@ -106,23 +106,23 @@ Além de toda a informação dada pelos gráfos, também existirá uma auxílio 
 
 - Um gráfico de histograma que mostra a porcentagem de alunos em cada categoria de conhecimento. Permite cruzar o conhecimento com a satisfação.
 
-![Histograma](imagens_relatorio\histograma.jpg)
+![Histograma](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/histograma.jpg)
 
 
 -   Um gráfico de barras para mostrar a quantidade de avaliações em cada categoria de sentimento.
 
-![gráfico de barras](imagens_relatorio\grafico_barras.jpg)
+![gráfico de barras](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/grafico_barras.jpg)
 
 -   Uma análise temporal do sentimentos,  onde são caluladas as médias diáriass dos feedbacks boas e ruins.
 
-![analise de tempo](imagens_relatorio\analise_tempo.jpg)
+![analise de tempo](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/analise_tempo.jpg)
 
 
 ### Modelagem do banco de dados
 
 Modelamos um banco de dados focado na avaliação, imagem a seguir:
 
-![Banco](imagens_relatorio\banco.png)
+![Banco](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/banco.png)
 
 *nota*: os nomes de algumas entidades como disciplina são um pouco abstratos. Não se apegue a eles para a compreensão geral do banco.
 
