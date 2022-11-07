@@ -69,7 +69,7 @@ O grafo geral tem por objetivo dar um overview de como as matérias dadas pelos 
 Observando apenas essa visualização conseguimos ter uma noção geral do decorrer das disciplinas. 
 
 
-![Grafo geral](imagens_relatorio\grafo_geral.jpg)
+![Grafo geral](https://github.com/GustavoSanches55/2nds/blob/main/imagens_relatorio/grafo_geral.jpg)
 
 Entretanto, o verdadeiro valor do Grafo Geral se dá ao combiná-lo com filtros e o grafo a seguir.
 
